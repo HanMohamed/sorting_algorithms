@@ -10,6 +10,8 @@
 */
 void quick_sort(int *array, size_t size)
 {
+	if (!array)
+		return;
 	quick_Sort_help(array, 0, (int)size - 1, size);
 }
 
