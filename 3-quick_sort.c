@@ -15,6 +15,9 @@ void quick_sort(int *array, size_t size)
 	quick_Sort_help(array, 0, (int)size - 1, size);
 }
 
+/**
+ * 
+*/
 void quick_Sort_help(int *array, int low, int high, size_t size)
 {
 	int master_card;
@@ -29,6 +32,9 @@ void quick_Sort_help(int *array, int low, int high, size_t size)
 	}
 }
 
+/**
+ * 
+*/
 int div_array(int *array, int low, int high, size_t size)
 {
 	int master_card, temp, i, j;
