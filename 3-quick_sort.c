@@ -15,6 +15,14 @@ void quick_sort(int *array, size_t size)
 	quick_Sort_help(array, 0, (int)size - 1, size);
 }
 
+/**
+ * quick_Sort_help - helper function
+ *
+ * @array: The array to be printed
+ * @size: Number of elements in @array
+ * @start: start
+ * @end: end
+*/
 void quick_Sort_help(int *array, int start, int end, size_t size)
 {
 	int pivot;
@@ -28,6 +36,15 @@ void quick_Sort_help(int *array, int start, int end, size_t size)
 	}
 }
 
+/**
+ * partition - partition implementation
+ * @array: The array to be printed
+ * @size: Number of elements in @array
+ * @start: start
+ * @end: end
+ *
+ * return: int
+*/
 int partition(int *array, int start, int end, size_t size)
 {
 	int pivot, i, j;
