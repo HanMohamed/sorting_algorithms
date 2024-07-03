@@ -11,7 +11,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *tmp;
 	int key;
 
-	if (!*list)
+	if (!*list || !**list)
 		return;
 
 	tmp = *list;
