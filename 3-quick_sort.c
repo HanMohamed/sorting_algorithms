@@ -15,48 +15,58 @@ void quick_sort(int *array, size_t size)
 	quick_Sort_help(array, 0, (int)size - 1, size);
 }
 
-/**
- * 
-*/
-void quick_Sort_help(int *array, int low, int high, size_t size)
+void quick_Sort_help(int *array, int start, int end, size_t size)
 {
-	int master_card;
+	int pivot;
 
-	if (low < high)
+	if (start < end)
 	{
+		pivot = partition(array, start, end, size);
 
-		master_card = div_array(array, low, high, size);
-
-		quick_Sort_help(array, low, master_card - 1, size);
-		quick_Sort_help(array, master_card + 1, high, size);
+		quick_Sort_help(array, start, pivot - 1, size);
+		quick_Sort_help(array, pivot + 1, end, size);
 	}
 }
 
-/**
- * 
-*/
-int div_array(int *array, int low, int high, size_t size)
+int partition(int *array, int start, int end, size_t size)
 {
-	int master_card, temp, i, j;
+	int pivot, i, j;
 
-	master_card = array[high];
-	i = low - 1;
+	pivot = array[end];
+	i = start;
 
-	for (j = low; j <= high - 1; j++)
+	for (j = start; j < end; j++)
 	{
-		if (array[j] < master_card)
+		if (array[j] < pivot)
 		{
+			if (i < j)
+			{
+				swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
 			i++;
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-			print_array(array, size);
 		}
 	}
 
-	temp = array[i + 1];
-	array[i + 1] = array[high];
-	array[high] = temp;
-	print_array(array, size);
-	return (i + 1);
+	if (array[i] > pivot)
+	{
+		swap(&array[i], &array[end]);
+		print_array(array, size);
+	}
+	return (i);
+}
+
+/**
+ *swap - swaps two elements
+ *
+ *@x: pointer to the first element
+ *@y: pointer to the second element
+ */
+void swap(int *x, int *y)
+{
+	int temp;
+
+	temp = *x;
+	*x = *y;
+	*y = temp;
 }
