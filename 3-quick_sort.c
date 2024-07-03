@@ -43,7 +43,7 @@ void quick_Sort_help(int *array, int start, int end, size_t size)
  * @start: start
  * @end: end
  *
- * @return: int
+ * Return: int
 */
 int partition(int *array, int start, int end, size_t size)
 {
